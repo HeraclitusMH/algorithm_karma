@@ -311,3 +311,37 @@ const missingIntegerRefBetter = (arr) => {
     }
 }
 
+
+
+function main(input) {
+    let counter = 0;
+    let a = [];
+    let b = [];
+   for(s in input){
+       if (!isNaN(s)){
+           if(counter < 2){
+               a.push(s);
+               counter++;
+           } else {
+               b.push(s);
+               counter++;
+           }
+       }
+   }
+   return res(a,b);
+}
+
+const res = (a,b) => {
+    let t1=0;
+    let t2=0;
+    for(let i=0;i<=3;i++){
+        if(a[0][i]>b[0][i]){
+            t1+=1;
+        }  if(a[0][i]<b[0][i]){
+            t2+=1;
+        }
+    }
+    return(t1,t2);
+}
+
+ //process.stdout.write(input[4]);
