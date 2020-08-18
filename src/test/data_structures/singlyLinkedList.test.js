@@ -1,8 +1,8 @@
 describe('Singly Linked List:', function () {
     
     it('test Node', function () {
-        var first = new Node("Test")
-        first.next = new Node("success")
+        var first = new SingleListNode("Test")
+        first.next = new SingleListNode("success")
         expect(first.next.val).toEqual("success");
     });
 
@@ -29,6 +29,15 @@ describe('Singly Linked List:', function () {
         expect(list.head.val).toBe(3);
         expect(list.tail.val).toBe(9);
         expect(list.length).toBe(3);
+    });
+
+    it('Pop empty list', function () {
+        const list = new SinglyLinkedList;
+        list.pop();
+        expect(list.pop()).toBe(undefined);
+        expect(list.head).toBe(null);
+        expect(list.tail).toBe(null);
+        expect(list.length).toBe(0);
     });
 
     it('Pop the only element', function () {

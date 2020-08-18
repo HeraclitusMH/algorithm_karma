@@ -1,4 +1,4 @@
-class Node {
+class SingleListNode {
     constructor(val){
         this.val = val;
         this.next = null;
@@ -13,7 +13,7 @@ class SinglyLinkedList {
     }
 
     push = (val) => {
-        let n = new Node(val);
+        let n = new SingleListNode(val);
         if(!this.head){
             this.head = n;
             this.tail = n;
@@ -56,7 +56,7 @@ class SinglyLinkedList {
     }
 
     unshift = (val) => {
-        let n = new Node(val);
+        let n = new SingleListNode(val);
         if(!this.head){
             this.head = n;
             this.tail = n;
@@ -97,7 +97,7 @@ class SinglyLinkedList {
         if (index === this.length) return !!this.push(val); 
         if (index === 0) return !!this.unshift(val);
 
-        let n = new Node(val);
+        let n = new SingleListNode(val);
         let previous = this.get(index-1);
         n.next = previous.next;
         previous.next = n;
