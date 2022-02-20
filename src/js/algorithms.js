@@ -277,7 +277,7 @@ const missingInteger = (arr) => {
     } else {
         return 1
     }
-}
+};
 
 const missingIntegerRef = (arr) => {
     let dictionary = {};
@@ -295,7 +295,7 @@ const missingIntegerRef = (arr) => {
     } else {
         return 1;
     }
-}
+};
 
 const missingIntegerRefBetter = (arr) => {
     let dictionary = {};
@@ -309,4 +309,40 @@ const missingIntegerRefBetter = (arr) => {
         }
         i++;
     }
-}
+};
+
+/**
+ *
+ * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * You can return the answer in any order.
+ *
+ *
+ *
+ *
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+let twoSum = function(nums,target) {
+    let dictionary = {};
+    for(let key in nums){
+        if(nums[key] <= target){
+            dictionary[nums[key]]?dictionary[nums[key]+'x'] = key : dictionary[nums[key]] = key
+        }
+    }
+
+    for(let key in dictionary){
+        let needed = target - key;
+        if(needed == key){
+            if(key+'x'in dictionary){
+                return [parseInt(dictionary[key]),parseInt(dictionary[key+'x'])];
+            }
+        }
+        if(needed in dictionary){
+            return [parseInt(dictionary[key]),parseInt(dictionary[needed])];
+        }
+    }
+
+};
